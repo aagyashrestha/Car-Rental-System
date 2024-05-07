@@ -110,7 +110,7 @@ router.post('/contact', async (req, res) => {
     
     // Define recipients arrays for the first and second email
     const recipients1 = [email]; // Assuming email is defined 
-    
+    const recipients2 = ['aagya.shrestha12@gmail.com'];
 
     // First email options
     var mailOptions1 = {
@@ -118,6 +118,14 @@ router.post('/contact', async (req, res) => {
       to: recipients1,
       subject: 'You have sent your issue to us',
       text: 'We will get back to you regarding your issue as soon as possible.',
+    };
+
+    // Second email options
+    var mailOptions2 = {
+      from: 'np03cs4s230086@heraldcollege.edu.np',
+      to: recipients2,
+      subject: subject, // Use provided subject from request body
+      text: text, // Use provided text from request body
     };
 
     // Send the first email
@@ -140,6 +148,7 @@ router.post('/contact', async (req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 router.post('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
