@@ -68,7 +68,7 @@ router.post('/forgot-password', async (req, res) => {
       service: 'gmail',
       auth: {
         user: 'np03cs4s230086@heraldcollege.edu.np',
-        pass: 'eivz yzut hbaa prag',
+        pass: 'nrjl pvau jrkl rczo',
       },
     });
     const encodedToken = encodeURIComponent(token).replace(/\./g, '%2E');
@@ -84,6 +84,55 @@ router.post('/forgot-password', async (req, res) => {
         return res.json({ message: 'Error sending email' });
       } else {
         return res.json({ status: true, message: 'Email sent' });
+      }
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+router.post('/contact', async (req, res) => {
+  const { email, subject, text } = req.body;
+  try {
+    const token = jwt.sign({ email }, process.env.KEY, {
+      expiresIn: '5m',
+    });
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'np03cs4s230086@heraldcollege.edu.np',
+        pass: 'nrjl pvau jrkl rczo',
+      },
+    });
+    const encodedToken = encodeURIComponent(token).replace(/\./g, '%2E');
+    
+    // Define recipients arrays for the first and second email
+    const recipients1 = [email]; // Assuming email is defined 
+    
+
+    // First email options
+    var mailOptions1 = {
+      from: 'np03cs4s230086@heraldcollege.edu.np',
+      to: recipients1,
+      subject: 'You have sent your issue to us',
+      text: 'We will get back to you regarding your issue as soon as possible.',
+    };
+
+    // Send the first email
+    transporter.sendMail(mailOptions1, function (error, info) {
+      if (error) {
+        return res.json({ message: 'Error sending email' });
+      } else {
+        // Send the second email after the first one is sent
+        transporter.sendMail(mailOptions2, function (error, info) {
+          if (error) {
+            return res.json({ message: 'Error sending email' });
+          } else {
+            return res.json({ status: true, message: 'Emails sent' });
+          }
+        });
       }
     });
   } catch (error) {
