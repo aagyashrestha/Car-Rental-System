@@ -4,7 +4,8 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { UserRouter } from './routes/user.js'
-
+import {BookingRouter} from './routes/bookingRouter.js'
+import { CarRouter } from './routes/CarsRoutes.js';
 dotenv.config()
 
 const app = express()
@@ -15,7 +16,8 @@ app.use(cors({
 }))
 app.use(cookieParser())
 app.use('/auth', UserRouter)
-
+app.use('/booking', BookingRouter);
+app.use('/cars', CarRouter);
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("MongoDB connected successfully");
