@@ -5,30 +5,38 @@ import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 
 const router = express.Router();
-
 router.post('/signup', async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, role } = req.body; // Add role to destructuring
+
   try {
+    // Check if the user already exists with the provided email
     const user = await User.findOne({ email });
     if (user) {
-      return res.json({ message: 'User already exists' });
+      return res.json({ status: 'user_exists', message: 'User already exists' });
     }
 
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user instance with role included
     const newUser = new User({
       username,
       email,
       password: hashedPassword,
+      role, // Include the role
     });
 
+    // Save the new user to the database
     await newUser.save();
-    return res.json({ status: true, message: 'Record registered' });
+    
+    // Return success response
+    return res.json({ status: 'success', message: 'Record registered' });
   } catch (error) {
+    // Handle errors
     console.error('Error:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    return res.status(500).json({ status: 'error', message: 'Internal server error' });
   }
 });
-
 router.post('/login', async (req, res) => {
   const { email, password, role } = req.body; // Add role to destructuring
 
@@ -119,7 +127,7 @@ router.post('/contact', async (req, res) => {
     const encodedToken = encodeURIComponent(token).replace(/\./g, '%2E');
     
     // Define recipients arrays for the first and second email
-    const recipients1 = [email]; // Assuming email is defined 
+    const recipients1 = [email]; // Assuming email1 is defined elsewhere
     const recipients2 = ['aagya.shrestha12@gmail.com'];
 
     // First email options
@@ -158,6 +166,8 @@ router.post('/contact', async (req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+
 
 
 router.post('/reset-password/:token', async (req, res) => {
