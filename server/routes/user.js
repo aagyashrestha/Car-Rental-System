@@ -5,24 +5,39 @@ import { User } from "../models/User.js";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  if (!user) {
-    return res.json({ message: "user is not registered" });
-  }
+router.post('/login', async (req, res) => {
+  const { email, password, role } = req.body; // Add role to destructuring
 
-  const validPassword = await bcryt.compare(password, user.password);
-  if (!validPassword) {
-    return res.json({ message: "password is incorrect" });
-  }
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.json({ status: false, message: 'User is not registered' });
+    }
 
-  const token = jwt.sign({ username: user.username }, process.env.KEY, {
-    expiresIn: "1h",
-  });
-  res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
-  return res.json({ status: true, message: "login successfully" });
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+      return res.json({ status: false, message: 'Password is incorrect' });
+    }
+
+    // Check role stored in the user document
+    if (role === user.role) {
+      // Redirect accordingly based on the role
+      if (role === 'user') {
+        return res.json({ status: true, message: 'Login successful', role: 'user', redirectTo: '/' });
+      } else if (role === 'admin') {
+        return res.json({ status: true, message: 'Login successful', role: 'admin', redirectTo: '/admin' });
+      } else {
+        return res.status(400).json({ status: false, message: 'Role is incorrect' });
+      }
+    } else {
+      return res.status(400).json({ status: false, message: 'Role is incorrect' });
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).json({ status: false, message: 'Internal server error' });
+  }
 });
+
 
 router.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
