@@ -117,3 +117,37 @@ export const deleteCarById = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while deleting car details' });
     }
 };
+// Function to fetch cars by category
+export const fetchSportCars = async () => {
+    try {
+        // Fetch all cars with the category 'Sports'
+        const sportCars = await CarModel.find({ category: 'Sports' });
+        console.log('Sport cars:', sportCars);
+        return sportCars;
+    } catch (error) {
+        console.error('Error fetching sport cars:', error);
+        throw error;
+    }
+};
+export const fetchLuxuryCars = async () => {
+    try {
+        // Fetch all cars with the category 'Luxury'
+        const luxuryCars = await CarModel.find({ category: 'Luxury' });
+        console.log('Luxury cars:', luxuryCars);
+        return luxuryCars;
+    } catch (error) {
+        console.error('Error fetching luxury cars:', error);
+        throw error;
+    }
+};
+export const fetchNormalCars = async () => {
+    try {
+        // Fetch all cars with the category 'Normal'
+        const normalCars = await CarModel.find({ category: 'Normal' });
+        console.log('Normal cars:', normalCars);
+        return normalCars;
+    } catch (error) {
+        console.error('Error fetching normal cars:', error);
+        throw error;
+    }
+};
