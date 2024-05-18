@@ -58,3 +58,24 @@ export const getCarById = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while fetching car details' });
     }
 };
+// Controller function to handle updating a car by ID
+export const updateCarById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedCarData = req.body;
+
+        // Find the car with the specified ID and update its data
+        const updatedCar = await CarModel.findByIdAndUpdate(id, updatedCarData, { new: true });
+
+        // If the car is not found, respond with a 404 status code
+        if (!updatedCar) {
+            return res.status(404).json({ error: 'Car not found' });
+        }
+
+        // Respond with the updated car data
+        res.status(200).json({ message: 'Car updated successfully', car: updatedCar });
+    } catch (error) {
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'An error occurred while updating car details' });
+    }
+};
