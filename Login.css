@@ -1,0 +1,90 @@
+/* Login.css */
+
+/* Background Image */
+.image {
+    background-image: url('ok.png'); /* Update path to your image */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: relative; /* Add position relative */
+  }
+  
+  /* Form Container */
+  /* Form Container */
+  .form-container {
+    position: absolute;
+    top: 50%; /* Adjust top position to bring it down */
+    transform: translateY(-50%); /* Center vertically */
+    right: 0;
+    width: 200%; /* Adjust the width as needed */
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    margin-left: 70%;
+    transition: top 0.5s; /* Add transition for smooth animation */
+  }
+  
+  /* Login Form Styling */
+  .sign-up-form {
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent white background */
+    margin-left: 80%;
+  }
+  
+  label {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Adjust radio button width */
+  .radio-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Links Styling */
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
