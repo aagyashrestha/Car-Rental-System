@@ -38,3 +38,23 @@ export const getAllCars = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while fetching cars' });
     }
 };
+// Controller function to handle fetching a single car by ID
+export const getCarById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Fetch the car with the specified ID from the database
+        const car = await CarModel.findById(id);
+
+        // If the car is not found, respond with a 404 status code
+        if (!car) {
+            return res.status(404).json({ error: 'Car not found' });
+        }
+
+        // Respond with the fetched car data
+        res.status(200).json({ car });
+    } catch (error) {
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'An error occurred while fetching car details' });
+    }
+};
