@@ -79,3 +79,23 @@ export const updateCarById = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while updating car details' });
     }
 };
+// Controller function to handle deleting a car by ID
+export const deleteCarById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Find the car with the specified ID and delete it from the database
+        const deletedCar = await CarModel.findByIdAndDelete(id);
+
+        // If the car is not found, respond with a 404 status code
+        if (!deletedCar) {
+            return res.status(404).json({ error: 'Car not found' });
+        }
+
+        // Respond with a success message
+        res.status(200).json({ message: 'Car deleted successfully' });
+    } catch (error) {
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'An error occurred while deleting car details' });
+    }
+};
