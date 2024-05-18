@@ -1,24 +1,35 @@
-
 import express from 'express';
 import multer from 'multer';
-import { addCar, getAllCars, getCarById, updateCarById, deleteCarById } from '../controller/CarsContoller.js';
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import { addCar, getAllCars, getCarById, updateCarById, deleteCarById, fetchSportCars } from '../controller/CarsContoller.js';
 
-const router = express.Router();
+// Configure Cloudinary
+cloudinary.config({
+    cloud_name: 'dzbpdmo26',
+    api_key: '894865434996119',
+    api_secret: 'I0EocWvLEhvkAD4TGyDSF5mHAHc'
+});
 
-// Multer configuration for handling file uploads
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads'); // Save uploaded files to the 'uploads' directory
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname); // Use original filename for uploaded files
+// Logging Cloudinary configuration
+console.log('Cloudinary configuration:', cloudinary.config());
+
+// Multer configuration using Cloudinary as storage
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'car-images', // Folder name to store the uploaded images
+        allowed_formats: ['jpg', 'png'], // Allowed image formats
+        transformation: [{ width: 500, height: 500, crop: 'limit' }] // Image transformation (optional)
     }
 });
 
-const upload = multer({ storage: storage });
+const parser = multer({ storage: storage });
+
+const router = express.Router();
 
 // Route to add a new car with image upload
-router.post('/addcar', upload.single('carImage'), addCar);
+router.post('/addcar', parser.single('carImage'), addCar);
 
 // Route to fetch all cars
 router.get('/', getAllCars);
@@ -31,5 +42,3 @@ router.put('/:id', updateCarById);
 
 // Route to delete a car by ID
 router.delete('/:id', deleteCarById);
-
-export { router as CarRouter };
