@@ -42,3 +42,22 @@ router.put('/:id', updateCarById);
 
 // Route to delete a car by ID
 router.delete('/:id', deleteCarById);
+
+// Route to fetch sports cars
+router.get('/sports', fetchSportCars);
+router.post('/book', async (req, res) => {
+    try {
+        const { carId, dropDate } = req.body; // Assuming carId and dropDate are provided in the request body
+
+        // Call the bookCar function to update the car status
+        const updatedCar = await bookCar(carId, dropDate);
+
+        // Respond with success message
+        res.status(200).json({ message: 'Car booked successfully', car: updatedCar });
+    } catch (error) {
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'An error occurred while booking the car' });
+    }
+});
+export { router as CarRouter };
+ 
