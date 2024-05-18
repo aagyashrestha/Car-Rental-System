@@ -1,10 +1,19 @@
 import CarModel from '../models/CarsModel.js';
 
+
 // Controller function to handle adding a new car
 export const addCar = async (req, res) => {
     try {
-        const { carName, numberPlate, category, color } = req.body;
-        const carImage = req.file.path; // Get the path of the uploaded image
+        const { carName, numberPlate, category, color, price } = req.body;
+        const carImage = req.file.path; // Get the URL of the uploaded image from Cloudinary
+
+        console.log('Uploaded file:', req.file);
+
+        // Logging the carImage URL
+        console.log('Uploaded car image URL:', carImage);
+
+        // Set the status to "Available"
+        const status = 'Available';
 
         // Create a new car instance
         const newCar = new CarModel({
@@ -12,7 +21,9 @@ export const addCar = async (req, res) => {
             numberPlate,
             category,
             color,
-            carImage
+            carImage,
+            status,
+            price
         });
 
         // Save the new car to the database
@@ -25,6 +36,10 @@ export const addCar = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while saving car details' });
     }
 };
+
+
+
+// Other controller functions for fetching, updating, and deleting cars...
 // Controller function to handle fetching all cars
 export const getAllCars = async (req, res) => {
     try {
@@ -38,6 +53,7 @@ export const getAllCars = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while fetching cars' });
     }
 };
+
 // Controller function to handle fetching a single car by ID
 export const getCarById = async (req, res) => {
     try {
@@ -58,6 +74,7 @@ export const getCarById = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while fetching car details' });
     }
 };
+
 // Controller function to handle updating a car by ID
 export const updateCarById = async (req, res) => {
     try {
@@ -79,6 +96,7 @@ export const updateCarById = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while updating car details' });
     }
 };
+
 // Controller function to handle deleting a car by ID
 export const deleteCarById = async (req, res) => {
     try {
