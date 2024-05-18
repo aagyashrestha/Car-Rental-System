@@ -151,3 +151,62 @@ export const fetchNormalCars = async () => {
         throw error;
     }
 };
+
+export const bookCar = async (_id, dropDate) => {
+    try {
+        console.log('Booking car with ID:', _id); // Log the ID of the car being booked
+        // Log the CarModel object to inspect its structure
+        console.log('This is CarModel',CarModel);
+       
+        // Ensure CarModel has the findById method
+        if (typeof CarModel.findById !== 'function') {
+            throw new Error('findById method is not defined on CarModel');
+        }
+        
+        // Find the car by ID and update its status to "Booked"
+        const car = await CarModel.findById(_id).exec();
+        if (!car) {
+            throw new Error('Car not found');
+        }
+        car.status = 'Booked';
+        const updatedCar = await car.save();
+        console.log('status:',car.status)
+        // Schedule drop-off if drop date is in the future
+        const today = new Date();
+        const dropDateTime = new Date(dropDate);
+        if (dropDateTime > today) {
+            const timeDifference = dropDateTime.getTime() - today.getTime();
+            setTimeout(async () => {
+                try {
+                    await dropOffCar(_id);
+                } catch (error) {
+                    console.error('Error occurred during drop-off:', error);
+                }
+            }, timeDifference);
+        }
+
+        return updatedCar;
+    } catch (error) {
+        console.error('Error occurred:', error);
+        throw new Error('An error occurred while updating car status to "Booked"');
+    }
+};
+
+
+// Controller function to handle updating the status of the car to "Available" after drop-off
+export const dropOffCar = async (_id) => {
+    try {
+        // Find the car by ID and update its status to "Available"
+        const car = await CarModel.findById(_id).exec();;
+        if (!car) {
+            throw new Error('Car not found');
+        }
+        car.status = 'Available';
+        const updatedCar = await car.save();
+
+        return updatedCar;
+    } catch (error) {
+        console.error('Error occurred:', error);
+        throw new Error('An error occurred while updating car status to "Available"');
+    }
+};
