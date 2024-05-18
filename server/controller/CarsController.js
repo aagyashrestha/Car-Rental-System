@@ -25,3 +25,16 @@ export const addCar = async (req, res) => {
         res.status(500).json({ error: 'An error occurred while saving car details' });
     }
 };
+// Controller function to handle fetching all cars
+export const getAllCars = async (req, res) => {
+    try {
+        // Fetch all cars from the database
+        const cars = await CarModel.find();
+
+        // Respond with the list of cars
+        res.status(200).json({ cars });
+    } catch (error) {
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'An error occurred while fetching cars' });
+    }
+};
