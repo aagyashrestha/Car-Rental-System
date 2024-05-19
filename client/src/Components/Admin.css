@@ -1,0 +1,93 @@
+.table-container {
+  margin: 50px auto 20px;
+  width: 80%;
+  background-color: #ffffff;
+  margin-left: 13%;
+}
+
+.button-container {
+  margin-bottom: 20px;
+  text-align: left;
+  width: 193%;
+}
+
+.button-container button {
+  margin: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #7e8b9a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}
+
+.form-div {
+  margin-bottom: 20px;
+}
+
+.form-div form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-div input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.submitted-data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.submitted-data-table th,
+.submitted-data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.submitted-data-table th {
+  background-color: #f2f2f2;
+}
+
+.submitted-data-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.submitted-data-table tr:hover {
+  background-color: #ddd;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #dc3545; /* Red color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.edit-button:hover {
+  background-color: #218838;
+}

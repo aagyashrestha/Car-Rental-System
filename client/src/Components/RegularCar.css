@@ -1,0 +1,88 @@
+.container-fluid {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .search {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search h1 {
+    color: #333;
+    font-size: 32px;
+    margin: 0;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+  }  
+  
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .product p {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+  }
+  
+  /* CarCard Styling */
+  .product .car-card {
+    width: 100%; /* Adjust according to your design */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .product .car-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product .car-card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .product .car-card .details {
+    padding: 20px;
+  }
+  
+  .product .car-card .details h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .product .car-card .details p {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .product .car-card .details button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .product .car-card .details button:hover {
+    background-color: #555;
+  }
+  

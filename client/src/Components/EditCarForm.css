@@ -1,0 +1,79 @@
+/* EditCarForm.css */
+
+.edit-car-form-container {
+  width: 1000px;
+  margin: auto;
+  padding: 20px;
+  border: 1px ;
+  border-radius: 5px;
+  background-color: #8cbbe0;
+  position: absolute;
+  right: 55px; /* Adjust as needed */
+  top: 70%; /* Position vertically centered */
+  transform: translateY(-50%);
+  left:0%;
+}
+
+.edit-car-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Add background image */
+.imagecontainer{
+  background-image: url('k.png');
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  background-color: #f9f9f9;
+}
+/* CSS for PayPal button */
+.paypal-button {
+  /* Your styles here */
+  width: 50%; /* Set the width to 100% */
+  max-width: 200px; /* Set maximum width if needed */
+  padding: 10px; /* Add padding */
+  font-size: 16px; /* Set font size */
+  background-color: #007bff; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add border radius */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.paypal-button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+

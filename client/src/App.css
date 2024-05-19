@@ -1,0 +1,56 @@
+/* SignUp.css */
+.sign-up-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/Users/aagyashrestha/MERN-Stack/clientt/photo.png');
+  background-size: cover; /* This will make sure the image covers the entire container */
+  background-position: center; /* This centers the background image */
+}
+
+.sign-up-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent white background */
+}
+
+label {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+.radio-button{
+  width: 20%;
+  display: flex;
+  gap: 0px;
+}
+
+.radio-input-b{
+  margin-left: 40px;
+}
+.file-upload{
+  margin-left: 0;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}

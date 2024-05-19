@@ -1,0 +1,70 @@
+.product-list {
+    margin-top: 50px;
+    display: flex; /* Display children in a row */
+    justify-content: center; /* Distribute items evenly */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+    padding-left: 300px; /* Add left padding */
+    padding-right: 20px; /* Add right padding */
+    background-color: #8cb3dd;
+}
+
+.product-item {
+    flex: 0 0 calc(20% - 20px); /* Adjusted width to make the items smaller */
+    margin-bottom: 20px; /* Add margin between items */
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button{
+    background-color: #90adcb;
+}
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-container {
+    padding: 20px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 10px;
+    width: 50%;
+    
+}
+
+.button-container button {
+    background-color: #90adcb;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+}
+
+.button-container button:hover {
+    background-color: #81a6ce;
+}
+
+.cars {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.what{
+    background-color: #8cb3dd;
+    margin-top: 0px;
+}
