@@ -27,6 +27,7 @@ Email Service: Nodemailer
 
 <img width="1421" alt="Screenshot 2024-07-21 at 12 43 20 AM" src="https://github.com/user-attachments/assets/75f38190-5330-4011-bb4d-430d21b28c6f">
 
-<img width="1470" alt="Screenshot 2024-07-22 at 12 35 33 AM" src="https://github.com/user-attachments/assets/dbaeb8d4-08b4-44e4-9032-47235671ba6d">
+<img width="1470" alt="Screenshot 2024-07-22 at 1 15 44 AM" src="https://github.com/user-attachments/assets/3f78881f-9a89-42ef-a8bb-0c1d74c021c2">
+
 <img width="1470" alt="Screenshot 2024-07-22 at 12 35 43 AM" src="https://github.com/user-attachments/assets/9d6c4cb9-284d-4524-acce-213945310fce">
 <img width="1470" alt="Screenshot 2024-07-22 at 12 35 54 AM" src="https://github.com/user-attachments/assets/a9c75ee5-0e36-4bce-ba66-7467ce98fccd">
