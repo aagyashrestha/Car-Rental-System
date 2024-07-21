@@ -26,6 +26,7 @@ Email Service: Nodemailer
 <img width="1465" alt="Screenshot 2024-07-22 at 12 16 05 AM" src="https://github.com/user-attachments/assets/871835aa-b02f-47fa-98f1-3567704440df">
 
 <img width="1421" alt="Screenshot 2024-07-21 at 12 43 20 AM" src="https://github.com/user-attachments/assets/75f38190-5330-4011-bb4d-430d21b28c6f">
-<img width="1436" alt="Screenshot 2024-07-21 at 12 43 54 AM" src="https://github.com/user-attachments/assets/876c6208-04c6-4efc-887c-a1f927b8175d">
-<img width="1411" alt="Screenshot 2024-07-21 at 12 44 17 AM" src="https://github.com/user-attachments/assets/45048243-ea93-4685-a94f-ef68f595a42a">
-<img width="1440" alt="Screenshot 2024-07-21 at 12 44 27 AM" src="https://github.com/user-attachments/assets/a948532a-f857-47ae-9565-493ce7d411f5">
+
+<img width="1470" alt="Screenshot 2024-07-22 at 12 35 33 AM" src="https://github.com/user-attachments/assets/dbaeb8d4-08b4-44e4-9032-47235671ba6d">
+<img width="1470" alt="Screenshot 2024-07-22 at 12 35 43 AM" src="https://github.com/user-attachments/assets/9d6c4cb9-284d-4524-acce-213945310fce">
+<img width="1470" alt="Screenshot 2024-07-22 at 12 35 54 AM" src="https://github.com/user-attachments/assets/a9c75ee5-0e36-4bce-ba66-7467ce98fccd">
