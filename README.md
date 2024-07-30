@@ -6,9 +6,13 @@ A full-stack Car Rental System built using the MERN stack. This project provides
 Features
 
 Automated Car Inventory Management: Simplifies car inventory management for admins.
+
 Customer Service Feature: Provides a contact form for customer inquiries using Nodemailer.
+
 Payment Integration: User can pay using PayPal.
+
 User Interface: Displays available cars for users to browse and book.
+
 Admin Interface: Includes a table displaying car bookings for easy management.
 
 
