@@ -3,6 +3,7 @@ Car Rental System
 A full-stack Car Rental System built using the MERN stack. This project provides a complete solution for managing car rentals, including user and admin interfaces, automated inventory management, and customer service features.
 
 
+
 Features
 
 Automated Car Inventory Management: Simplifies car inventory management for admins.
@@ -16,11 +17,15 @@ User Interface: Displays available cars for users to browse and book.
 Admin Interface: Includes a table displaying car bookings for easy management.
 
 
+
 Technologies Used
 
 Frontend: React.js
+
 Backend: Node.js, Express.js
+
 Database: MongoDB
+
 Email Service: Nodemailer
 
 
